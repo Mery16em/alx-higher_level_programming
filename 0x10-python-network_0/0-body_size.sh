@@ -1,3 +1,4 @@
 #!/bin/bash
-# script that takes in a URL, sends a request to that URL, and displays the size of the body of the response
-curl -s -o curl -s -o /dev/null -w '%{size_download}\n' "$1"
+# Sends a GET request to the URL and displays "my index page" if the response is exactly that
+curl -s "$1" | grep -q "my index page" && echo "GET / => \"my index page\""
+
